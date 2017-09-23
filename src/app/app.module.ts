@@ -15,6 +15,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { SpotifyService } from './services/spotify.service';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { ArtistComponent } from './components/artist/artist.component';
+import { SecureDomPipe } from './pipes/secure-dom.pipe';
 
 
 
@@ -26,7 +27,8 @@ import { ArtistComponent } from './components/artist/artist.component';
         NavbarComponent,
         CarouselComponent,
         NoimagePipe,
-        ArtistComponent
+        ArtistComponent,
+        SecureDomPipe
     ],
     imports: [
         BrowserModule,

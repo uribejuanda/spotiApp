@@ -1,0 +1,4 @@
+spoti-app@0.0.0 c:\angular2-tests\spotiApp
++-- jquery@3.2.1 
+`-- UNMET PEER DEPENDENCY popper.js@^1.11.0
+

@@ -11,7 +11,7 @@ export class SearchComponent implements OnInit {
     public term = '';
     public artists: any = [];
 
-    constructor( private spotifyService: SpotifyService ) {
+    constructor( public spotifyService: SpotifyService ) {
     }
 
     ngOnInit() {
@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
     search() {
         if (this.term) {
-            this.spotifyService.getArtist(this.term).subscribe( data => {
+            this.spotifyService.getArtists(this.term).subscribe( data => {
                 console.log(data);
                 this.artists = data;
             }, err => {

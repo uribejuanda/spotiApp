@@ -1,3 +1,58 @@
-<p>
-  artist works!
-</p>
+<div class="container">
+    <div class="row" *ngIf="artist">
+        <div class="col-md-3 text-center">
+            <img [src]="artist.images | noimage" class="img-thumbnail img-circle">
+        </div>
+        <div class="col-md-9">
+            <h3>{{ artist.name }} <small>Popularidad {{ artist.popularity }}</small></h3>
+            <hr>
+            <a [href]="artist.external_urls?.spotify"
+                class="btn btn-outline-success">
+                Listen on Spotify
+            </a>
+            <a [routerLink]="['/search']"
+               class="btn btn-outline-danger">
+                Back
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Top Tracks</h3>
+        </div>
+    </div>
+    <div class="row" *ngIf="topTracks">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-inverse table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Photo</th>
+                            <th>Track</th>
+                            <th>popularity</th>
+                            <th>Preview</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let track of topTracks?.tracks; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td><img [src]="track?.album?.images | noimage" class="img-50"></td>
+                            <td>{{track.name}}</td>
+                            <td>{{track.popularity}}%</td>
+                            <td>
+                                <!--<audio controls [src]="track.preview_url">Not supported</audio>-->
+                                <iframe *ngIf="track.uri" f [src]="track.uri | secureDom: 'https://open.spotify.com/embed?uri='"
+                                    width="300"
+                                    height="80"
+                                    frameborder="0"
+                                    allowtransparency="true">
+                                </iframe>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
