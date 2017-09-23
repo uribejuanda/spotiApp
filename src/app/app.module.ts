@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Components
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { APP_ROUTING } from './app.routes';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SpotifyService } from './services/spotify.service';
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { ArtistComponent } from './components/artist/artist.component';
 
 
 
@@ -21,11 +24,14 @@ import { SpotifyService } from './services/spotify.service';
         HomeComponent,
         SearchComponent,
         NavbarComponent,
-        CarouselComponent
+        CarouselComponent,
+        NoimagePipe,
+        ArtistComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
+        FormsModule,
         APP_ROUTING
     ],
     providers: [
